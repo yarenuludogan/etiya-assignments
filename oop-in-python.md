@@ -74,7 +74,7 @@ def get_age(self):
     return self.__age
 ```
 
-### Setter Example
+#### Setter Example
 
 ```python
 def set_age(self, age):
@@ -336,7 +336,7 @@ A child class overrides a method from its parent class.
 
 #### Polymorphism in Built-in Functions
 
-Python built-in functions are polymorphic because they work with different data types.
+Python's built-in functions are polymorphic because they can work with different types of objects while keeping the same interface. The behavior of the function changes depending on the type of data passed to it. For example, the len() function returns the number of characters when used with a string and the number of elements when used with a list. Although the same function name is used, the result depends on the object being processed. This allows developers to use a consistent and intuitive interface across multiple data types without needing separate functions for each type.
 
 ```python
 print(len("Hello"))
@@ -350,7 +350,7 @@ print(max("a", "z", "m"))
 
 #### Polymorphism in Functions
 
-Using duck typing, functions can work with different object types.
+Polymorphism can also be achieved through functions. A function can operate on different types of objects as long as those objects provide the behavior that the function expects. In Python, functions usually focus on what an object can do rather than what type it is. This makes code more flexible and reusable because the same function can interact with many different object types without modification.This concept is closely related to Python's duck typing philosophy.
 
 ```python
 class Pen:
@@ -373,6 +373,7 @@ perform_task(Eraser())
 ---
 
 #### Polymorphism with Inheritance
+Inheritance is one of the most common ways to implement polymorphism in Object-Oriented Programming. A child class can override a method inherited from its parent class and provide its own implementation. As a result, different objects can respond differently to the same method call. The program can treat all objects as instances of the same base type while still allowing each object to exhibit unique behavior. For example, both Dog and Cat classes may implement a speak() method, but each produces a different output. This ability to perform the same action in different ways is the essence of polymorphism.
 
 ```python
 class Animal:
@@ -396,13 +397,13 @@ for animal in animals:
     print(animal.speak())
 ```
 
-The same method (`speak`) produces different outputs depending on the object.
+- The same method (`speak`) produces different outputs depending on the object.
 
 ---
 
 #### Operator Overloading
 
-Operator overloading is a form of polymorphism where operators behave differently depending on the objects they are used with.
+Operator overloading is a form of polymorphism where operators behave differently depending on the objects they are used with.In Python, operators are implemented through special methods such as __add__(), __sub__(), and __str__(). For example, the + operator adds numbers, concatenates strings, and combines lists. Developers can also define how operators should behave for their own custom classes by overriding the corresponding special methods. This makes custom objects behave more naturally and improves code readability.
 
 ```python
 class Number:
@@ -426,7 +427,7 @@ print(n1 + n2)
 
 #### Method Overloading in Python
 
-Python does not support traditional method overloading. Similar behavior can be achieved using:
+Method overloading refers to defining multiple methods with the same name but different parameter lists. Languages such as Java and C++ support this feature directly. Python does not support traditional method overloading. If multiple methods with the same name are defined, the latest definition overrides the previous ones. However, similar behavior can be achieved using default arguments, variable-length arguments (*args), and keyword arguments (**kwargs). This allows a single function to handle different numbers or types of parameters while maintaining a consistent interface.
 
 * Default arguments
 * `*args`
@@ -442,12 +443,16 @@ print(add(5))
 print(add(5, 10))
 print(add(5, 10, 15))
 ```
+- add(5) → uses default values for b and c
+- add(5, 10) → uses a custom value for b
+- add(5, 10, 15) → uses custom values for all parameters
 
+Although Python does not support true method overloading, default arguments allow one function to perform multiple related tasks.
 ---
 
 #### Duck Typing
 
-Duck typing means that the actual type of an object is less important than the methods it provides.Python focuses on behavior rather than object type.
+Duck typing means that the actual type of an object is less important than the methods it provides. Python focuses on behavior rather than object type.
 
 > "If it looks like a duck and quacks like a duck, it's a duck."
 
@@ -471,5 +476,7 @@ def make_it_fly(obj):
 make_it_fly(Bird())
 make_it_fly(Airplane())
 ```
+- The function make_it_fly() works with both Bird and Airplane objects even though they belong to completely different classes. The function does not check the object's type; it only expects the object to provide a fly() method.
 
+- When a Bird object is passed, Bird.fly() is executed. When an Airplane object is passed, Airplane.fly() is executed. The same function call produces different behavior depending on the object received, which is a key characteristic of polymorphism.
 - Both objects work because they share the same method (`fly`), not the same class.
