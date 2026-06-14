@@ -1,6 +1,6 @@
-## Object-Oriented Programming (OOP)
+## Object-Oriented Programming 
 
-**Object-Oriented Programming (OOP)** is a software development approach that emerged as a result of scalability challenges in the software development world. The "scale" mentioned here refers to the scope defined during project planning, where decisions are made about how large the project will be and what it will include.
+**Object-Oriented Programming** is a software development approach that emerged as a result of scalability challenges in the software development world. The "scale" mentioned here refers to the scope defined during project planning, where decisions are made about how large the project will be and what it will include.
 
 The fundamental idea of OOP is to use virtual objects, rather than focusing primarily on functions and logic, to represent and solve real-world problems within software systems.
 
