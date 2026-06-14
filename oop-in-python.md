@@ -369,87 +369,7 @@ def perform_task(tool):
 perform_task(Pen())
 perform_task(Eraser())
 ```
-
 ---
-
-#### Polymorphism with Inheritance
-Inheritance is one of the most common ways to implement polymorphism in Object-Oriented Programming. A child class can override a method inherited from its parent class and provide its own implementation. As a result, different objects can respond differently to the same method call. The program can treat all objects as instances of the same base type while still allowing each object to exhibit unique behavior. For example, both Dog and Cat classes may implement a speak() method, but each produces a different output. This ability to perform the same action in different ways is the essence of polymorphism.
-
-```python
-class Animal:
-
-    def speak(self):
-        return "Some sound"
-
-class Dog(Animal):
-
-    def speak(self):
-        return "Bark"
-
-class Cat(Animal):
-
-    def speak(self):
-        return "Meow"
-
-animals = [Dog(), Cat()]
-
-for animal in animals:
-    print(animal.speak())
-```
-
-- The same method (`speak`) produces different outputs depending on the object.
-
----
-
-#### Operator Overloading
-
-Operator overloading is a form of polymorphism where operators behave differently depending on the objects they are used with.In Python, operators are implemented through special methods such as __add__(), __sub__(), and __str__(). For example, the + operator adds numbers, concatenates strings, and combines lists. Developers can also define how operators should behave for their own custom classes by overriding the corresponding special methods. This makes custom objects behave more naturally and improves code readability.
-
-```python
-class Number:
-
-    def __init__(self, value):
-        self.value = value
-
-    def __add__(self, other):
-        return Number(self.value + other.value)
-
-    def __str__(self):
-        return str(self.value)
-
-n1 = Number(5)
-n2 = Number(10)
-
-print(n1 + n2)
-```
-
----
-
-#### Method Overloading in Python
-
-Method overloading refers to defining multiple methods with the same name but different parameter lists. Languages such as Java and C++ support this feature directly. Python does not support traditional method overloading. If multiple methods with the same name are defined, the latest definition overrides the previous ones. However, similar behavior can be achieved using default arguments, variable-length arguments (*args), and keyword arguments (**kwargs). This allows a single function to handle different numbers or types of parameters while maintaining a consistent interface.
-
-* Default arguments
-* `*args`
-* `**kwargs`
-
-#### Example
-
-```python
-def add(a, b=0, c=0):
-    return a + b + c
-
-print(add(5))
-print(add(5, 10))
-print(add(5, 10, 15))
-```
-- add(5) → uses default values for b and c
-- add(5, 10) → uses a custom value for b
-- add(5, 10, 15) → uses custom values for all parameters
-
-Although Python does not support true method overloading, default arguments allow one function to perform multiple related tasks.
----
-
 #### Duck Typing
 
 Duck typing means that the actual type of an object is less important than the methods it provides. Python focuses on behavior rather than object type.
@@ -479,4 +399,88 @@ make_it_fly(Airplane())
 - The function make_it_fly() works with both Bird and Airplane objects even though they belong to completely different classes. The function does not check the object's type; it only expects the object to provide a fly() method.
 
 - When a Bird object is passed, Bird.fly() is executed. When an Airplane object is passed, Airplane.fly() is executed. The same function call produces different behavior depending on the object received, which is a key characteristic of polymorphism.
+- 
 - Both objects work because they share the same method (`fly`), not the same class.
+---
+
+#### Polymorphism with Inheritance
+Inheritance is one of the most common ways to implement polymorphism in Object-Oriented Programming. A child class can override a method inherited from its parent class and provide its own implementation. As a result, different objects can respond differently to the same method call.
+The program can treat all objects as instances of the same base type while still allowing each object to exhibit unique behavior. For example, both Dog and Cat classes may implement a speak() method, but each produces a different output. This ability to perform the same action in different ways is the essence of polymorphism.
+
+```python
+class Animal:
+
+    def speak(self):
+        return "Some sound"
+
+class Dog(Animal):
+
+    def speak(self):
+        return "Bark"
+
+class Cat(Animal):
+
+    def speak(self):
+        return "Meow"
+
+animals = [Dog(), Cat()]
+
+for animal in animals:
+    print(animal.speak())
+```
+
+- The same method (`speak`) produces different outputs depending on the object.
+
+---
+
+#### Operator Overloading
+
+Operator overloading is a form of polymorphism where operators behave differently depending on the objects they are used with.In Python, operators are implemented through special methods such as __add__(), __sub__(), and __str__(). For example, the + operator adds numbers, concatenates strings, and combines lists.
+Developers can also define how operators should behave for their own custom classes by overriding the corresponding special methods. This makes custom objects behave more naturally and improves code readability.
+
+```python
+class Number:
+
+    def __init__(self, value):
+        self.value = value
+
+    def __add__(self, other):
+        return Number(self.value + other.value)
+
+    def __str__(self):
+        return str(self.value)
+
+n1 = Number(5)
+n2 = Number(10)
+
+print(n1 + n2)
+```
+
+---
+
+#### Method Overloading in Python
+
+Method overloading refers to defining multiple methods with the same name but different parameter lists. Languages such as Java and C++ support this feature directly. Python does not support traditional method overloading. If multiple methods with the same name are defined, the latest definition overrides the previous ones. 
+However, similar behavior can be achieved using default arguments, variable-length arguments (*args), and keyword arguments (**kwargs). This allows a single function to handle different numbers or types of parameters while maintaining a consistent interface.
+
+* Default arguments
+* `*args`
+* `**kwargs`
+
+#### Example
+
+```python
+def add(a, b=0, c=0):
+    return a + b + c
+
+print(add(5))
+print(add(5, 10))
+print(add(5, 10, 15))
+```
+- add(5) → uses default values for b and c
+- add(5, 10) → uses a custom value for b
+- add(5, 10, 15) → uses custom values for all parameters
+Although Python does not support true method overloading, default arguments allow one function to perform multiple related tasks.
+---
+
+
