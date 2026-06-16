@@ -1,8 +1,11 @@
-###Veri Tabanı Normalizasyonu 
+### Veri Tabanı Normalizasyonu 
+
 Normalizasyon, veri tabanı tablolarını belirli kurallara (normal formlar) göre düzenleyerek veri tekrarını azaltmayı ve veri tutarlılığını sağlamayı amaçlar.
 Başlıca normal formlar: 1NF, 2NF, 3NF (ve BCNF), 4NF, 5NF.
+
 ---
-####1. Normal Form (First Normal Form - 1NF)
+
+#### 1. Normal Form (First Normal Form - 1NF)
 
 1NF, bir tabloda:
 
@@ -22,8 +25,10 @@ Birinci tablo ebeveyn bilgilerini içerir
 Bu tablolar primary key ve foreign key ile ilişkilendirilir.
 **Sonuç:**
 Veri tekrarları tamamen ortadan kalkmasa da sorgular daha sade ve anlaşılır hale gelir.
+
 ---
-####2. Normal Form (Second Normal Form - 2NF)
+
+#### 2. Normal Form (Second Normal Form - 2NF)
 
 2NF, 1NF’i sağladıktan sonra şu kuralı ekler:
 
@@ -46,8 +51,10 @@ Depo ve adres bilgisi
 
 **Sonuç:**
 Veri tekrarları azalır ve veri tutarlılığı artar.
+
 ---
-####3. Normal Form (Third Normal Form - 3NF) ve BCNF
+
+#### 3. Normal Form (Third Normal Form - 3NF) ve BCNF
 
 3NF, 2NF’i sağladıktan sonra ek olarak:
 
@@ -71,8 +78,10 @@ EMPLOYEE_DEPARTMENT (ilişki tablosu)
 
 BCNF (Boyce-Codd Normal Form):
 3NF’in daha katı halidir. Her belirleyici alanın (determinant) bir super key olması gerekir.
+
 ---
-####4. Normal Form (Fourth Normal Form - 4NF)
+
+#### 4. Normal Form (Fourth Normal Form - 4NF)
 4NF, çok değerli bağımlılıkları (multi-valued dependency) ortadan kaldırır.
 
 **Örnek:**
@@ -86,8 +95,10 @@ Employee-Languages
 
 **Sonuç:**
 Bağımsız veri kümeleri ayrılarak gereksiz veri kombinasyonları önlenir.
+
 ---
-####5. Normal Form (Fifth Normal Form - 5NF)
+
+#### 5. Normal Form (Fifth Normal Form - 5NF)
 
 5NF, join dependency kavramına dayanır.
 Temel kural:
@@ -109,4 +120,5 @@ Güncelleme, silme ve ekleme hatalarını önlemek
 
 Her normal form veri yapısını daha düzenli hale getirir.
 Ancak pratikte çoğu sistem genellikle 3NF veya BCNF seviyesine kadar normalize edilir.
+
 ---
