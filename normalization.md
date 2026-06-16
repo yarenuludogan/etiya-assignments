@@ -9,9 +9,9 @@ Başlıca normal formlar: 1NF, 2NF, 3NF (ve BCNF), 4NF, 5NF.
 
 1NF, bir tabloda:
 
-Primary key (birincil anahtar) bulunmasını
-Aynı tür verilerin tekrar eden sütunlar halinde olmamasını
-Hücrelerde birden fazla değer bulunmamasını gerektirir
+- Primary key (birincil anahtar) bulunmasını
+- Aynı tür verilerin tekrar eden sütunlar halinde olmamasını
+- Hücrelerde birden fazla değer bulunmamasını gerektirir
 
 **Örnek:**
 Bir tabloda child1, child2, child3 gibi sütunların olması tekrar eden grup oluşturur.
@@ -19,8 +19,8 @@ Bir tabloda child1, child2, child3 gibi sütunların olması tekrar eden grup ol
 **Çözüm:**
 Veri iki tabloya ayrılır:
 
-Birinci tablo ebeveyn bilgilerini içerir
-İkinci tablo çocuk bilgilerini içerir
+- Birinci tablo ebeveyn bilgilerini içerir
+- İkinci tablo çocuk bilgilerini içerir
 
 Bu tablolar primary key ve foreign key ile ilişkilendirilir.
 **Sonuç:**
@@ -32,22 +32,22 @@ Veri tekrarları tamamen ortadan kalkmasa da sorgular daha sade ve anlaşılır 
 
 2NF, 1NF’i sağladıktan sonra şu kuralı ekler:
 
-Non-key alanlar, primary key’in tamamına bağlı olmalıdır
-Özellikle birleşik anahtar varsa kısmi bağımlılıklar olmamalıdır
+- Non-key alanlar, primary key’in tamamına bağlı olmalıdır
+- Özellikle birleşik anahtar varsa kısmi bağımlılıklar olmamalıdır
 
 **Örnek :**
 Bir tabloda primary key (part, warehouse) iken
 warehouse_address sadece warehouse kolonuna bağlıysa bu 2NF ihlalidir.
 **Sorun:**
 
-Veri tekrarı oluşur
-Güncelleme ve silme hataları meydana gelebilir
+- Veri tekrarı oluşur
+- Güncelleme ve silme hataları meydana gelebilir
 
 **Çözüm:**
 Tablo ikiye bölünür:
 
-Parça, depo ve miktar bilgisi
-Depo ve adres bilgisi
+- Parça, depo ve miktar bilgisi
+- Depo ve adres bilgisi
 
 **Sonuç:**
 Veri tekrarları azalır ve veri tutarlılığı artar.
@@ -58,7 +58,7 @@ Veri tekrarları azalır ve veri tutarlılığı artar.
 
 3NF, 2NF’i sağladıktan sonra ek olarak:
 
-Non-key alanların başka non-key alanlara bağlı olmamasını ister
+- Non-key alanların başka non-key alanlara bağlı olmamasını ister
 Bu tür bağımlılıklar transitive dependency olarak adlandırılır
 
 **Örnek:**
@@ -66,8 +66,8 @@ dept_name, dept_num’a bağlıdır ama primary key emp_numdur.
 Bu durumda dolaylı bağımlılık oluşur.
 
 **Sorun:**
-Aynı veri birden fazla satırda tekrarlanır
-Güncelleme hataları ortaya çıkar
+- Aynı veri birden fazla satırda tekrarlanır
+- Güncelleme hataları ortaya çıkar
 
 **Çözüm:**
 Veri üç tabloya ayrılır:
@@ -106,17 +106,17 @@ Bir tablo parçalara ayrıldıktan sonra bu parçalar tekrar birleştirildiğind
 orijinal tablo eksiksiz ve hatasız şekilde elde edilmelidir.
 Mantık:
 
-Veri kaybı olmamalı
-Fazladan (yanlış) veri oluşmamalı
+- Veri kaybı olmamalı
+- Fazladan (yanlış) veri oluşmamalı
 
 Eğer parçalama sonrası birleştirme sırasında farklı veya hatalı sonuç oluşuyorsa,
 o parçalama işlemi uygun değildir.
 
 Normalizasyonun temel amaçları:
 
-Veri tekrarını azaltmak
-Veri tutarlılığını artırmak
-Güncelleme, silme ve ekleme hatalarını önlemek
+- Veri tekrarını azaltmak
+- Veri tutarlılığını artırmak
+- Güncelleme, silme ve ekleme hatalarını önlemek
 
 Her normal form veri yapısını daha düzenli hale getirir.
 Ancak pratikte çoğu sistem genellikle 3NF veya BCNF seviyesine kadar normalize edilir.
